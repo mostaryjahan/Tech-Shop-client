@@ -13,7 +13,7 @@ const SocialLogin = () => {
         
         googleLogin()
             .then(result => {
-                console.log("google login successfully", result.user);
+                // console.log("google login successfully", result.user);
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName

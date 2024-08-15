@@ -11,7 +11,6 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -36,11 +35,12 @@ const SignUp = () => {
             axiosPublic.post("/users", userInfo).then((res) => {
               if (res.data.insertedId) {
                 console.log("inserted id");
+                navigate("/");
+
               }
             });
           })
           .catch((error) => console.error(error));
-        navigate("/");
       })
       .catch((error) => {
         console.error(error);

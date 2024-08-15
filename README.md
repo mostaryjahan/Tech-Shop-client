@@ -1,8 +1,42 @@
-# React + Vite
+# Product Search and Filtering Website (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project Name: Tech-Shop (livelink)
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend part of the Fullstack Product Search and Filtering Website. It is built using React.js and provides users with a single-page interface to search, filter, and sort products. It integrates with the backend server to fetch and manage product data.
+
+## Features
+
+- **Pagination:** Efficiently load and display products with page navigation.
+- **Searching:** Search for products by name.
+- **Categorization:** Filter products by brand name, category, and price range.
+- **Sorting:** Sort products by price and date added.
+- **Authentication:** Sign in using Google or Email/Password (Firebase).
+
+## Technologies Used
+
+- React.js
+- Axios
+- Tailwind CSS
+- Firebase Authentication
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <frontend-repository-url>
+   cd <frontend-directory>
+2. Install dependencies: npm install
+3. Create a .env file in the root directory and add your Firebase configuration
+
+## Deployment
+The frontend is deployed on Netlify or Vercel. You can view the live website here.
+
+- **Usage**
+1. Navigate through the website using the navbar.
+2. Use the search bar to find products by name.
+4. Filter products by brand, category, and price range.
+4. Sort products by price or newest first.
+5. Sign in using Google or Email/Password.
+

@@ -63,6 +63,8 @@
 // };
 
 // export default NavBer;
+
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -79,6 +81,7 @@ const NavBer = () => {
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
           <span className="text-white text-lg font-semibold">Tech-Shop</span>
+         
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link to="/" className="text-white hover:text-gray-400">Home</Link>
@@ -127,15 +130,20 @@ const NavBer = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <a href="#home" className="block text-white py-2">Home</a>
-          <a href="#login" className="block text-white py-2">Login</a>
-          {user && (
-            <img
-              src={user.photoURL || defaultImage}
-              alt="User"
-              className="h-8 w-8 rounded-full border-2 border-white mt-2"
-            />
-          )}
+          <div className="md:hidden flex flex-col items-start">
+          <Link href="/" className="block text-white py-2">Home</Link>
+          {
+            user ? 
+            <button onClick={()=> logout()} className='text-white btn bg-red-500 border-none hover-bg-red-700 hover:text-gray-300'>Logout</button>
+            :
+          <Link to="/sign-in" className="btn bg-green-500 border-none text-white hover:text-gray-300">Sign In</Link>
+          }
+          <img
+            src={user ? user.photoURL : defaultImage }
+            alt="User"
+            className="h-8 w-8 rounded-full border-2 border-white mt-4"
+          />
+        </div>
         </div>
       )}
     </nav>

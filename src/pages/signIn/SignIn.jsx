@@ -1,13 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignIn = () => {
   const { loginUser } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  // console.log("user login for items",location.state);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,7 +17,7 @@ const SignIn = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
-        navigate(from, { replace: true });
+        navigate('/')
       })
       .catch((error) => {
         const errorMessage = error.message;
