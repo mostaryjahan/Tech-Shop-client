@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <div className="p-4">
       <h1 className="text-center font-rubik  text-2xl font-semibold dark:text-gray-100 mt-6">
-        Welcome to Our Shop...
+        Welcome to Our Shop....
       </h1>
       <h1 className="text-center dark:text-gray-100  text-lg font-rubik mb-12">
         Shop smarter, live better – find your essentials and beyond
