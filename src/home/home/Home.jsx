@@ -16,7 +16,7 @@ const Home = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/products", {
+      const response = await axios.get("https://server-bay-six.vercel.app/products", {
         params: {
           page,
           limit: 6,

@@ -1,6 +1,6 @@
 # Product Search and Filtering Website (Frontend)
 
-### Project Name: Tech-Shop (livelink)
+### Project Name: Tech-Shop (https://tech-shop-client-pied.vercel.app/)
 
 ## Project Overview
 
