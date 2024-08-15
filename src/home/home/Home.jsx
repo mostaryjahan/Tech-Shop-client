@@ -19,7 +19,7 @@ const Home = () => {
       const response = await axios.get("http://localhost:5000/products", {
         params: {
           page,
-          limit: 6, // Number of products per page
+          limit: 6,
           search,
           brand,
           category,
@@ -42,25 +42,29 @@ const Home = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-center  text-2xl font-semibold mt-6">
-        Welcome to Tech-Shop...
+      <h1 className="text-center font-rubik  text-2xl font-semibold dark:text-gray-100 mt-6">
+        Welcome to Our Shop...
       </h1>
-      <h1 className="text-center  text-lg font-semibold mb-6">
-        Here all our products are displayed!
+      <h1 className="text-center dark:text-gray-100  text-lg font-rubik mb-12">
+        Shop smarter, live better – find your essentials and beyond
       </h1>
 
       {/* Search and Filters */}
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder="Search by product name..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
-        />
+      <div className="mb-4 sm:text-center">
+        <div>
+          <span>Search here... </span>
+          <input
+            type="text"
+            placeholder="Search by product name..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className=" border-blue-800 border p-2 rounded mb-2 mr-2"
+          />
+        </div>
+
         <select
           onChange={(e) => setBrand(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
+          className="border border-blue-800 p-2 rounded mb-2 mr-2"
         >
           <option value="">All Brands</option>
           <option value="Apple">Apple</option>
@@ -69,7 +73,7 @@ const Home = () => {
         </select>
         <select
           onChange={(e) => setCategory(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2"
         >
           <option value="">All Categories</option>
           <option value="mobile">Mobile</option>
@@ -82,50 +86,45 @@ const Home = () => {
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2"
         />
         <input
           type="number"
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2"
         />
         {/* sort by start */}
         <select
           onChange={(e) => setSortBy(e.target.value)}
-          className="border p-2 rounded mb-2 mr-2"
+          className="border border-blue-800 p-2 rounded mb-2 mr-2"
         >
           <option value="">Sort By</option>
           <option value="price">Price</option>
-          <option value="creationDate">Newest First</option>
+          <option value="creationDate">Date</option>
         </select>
 
         {/* Conditionally render sort options based on selected sortBy */}
         {sortBy === "price" && (
           <select
             onChange={(e) => setSortOrder(e.target.value)}
-            className="border p-2 rounded mb-2"
+            className="border border-blue-800 p-2 rounded mb-2"
           >
             <option value="asc">Low to High</option>
             <option value="desc">High to Low</option>
           </select>
         )}
 
-        {/* {sortBy === "creationDate" && (
+        {sortBy === "creationDate" && (
           <select
             onChange={(e) => setSortOrder(e.target.value)}
-            className="border p-2 rounded mb-2"
+            className="border border-blue-800  p-2 rounded mb-2"
           >
-            <option value="desc">Newest First</option>
-            <option value="dsc">Oldest First</option>
+            <option value="desc">Newest to Oldest</option>
+            <option value="asc">Oldest to Newest</option>
           </select>
-        )} */}
-
-        {/* <select onChange={(e) => setSortOrder(e.target.value)} className="border p-2 rounded mb-2">
-                    <option value="asc">Low to High</option>
-                    <option value="desc">High to Low</option>
-                </select> */}
+        )}
       </div>
 
       {/* Product Cards */}
