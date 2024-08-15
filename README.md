@@ -25,7 +25,7 @@ This is the frontend part of the Fullstack Product Search and Filtering Website.
 
 1. Clone the repository:
    ```bash
-   git clone <frontend-repository-url>
+   git clone <https://github.com/mostaryjahan/Tech-Shop-client.git>
    cd <frontend-directory>
 2. Install dependencies: npm install
 3. Create a .env file in the root directory and add your Firebase configuration
