@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignIn = () => {
   const { loginUser } = useAuth();
@@ -27,9 +28,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="card md:w-1/2 w-full max-w-sm shadow-2xl bg-base-100">
+    <div className="hero  bg-base-200">
+      <div className="hero-content flex-col">
+        <h1 className="text-2xl font-bold text-center">SignIn Now!</h1>
+        <div className="card  w-full md:w-[400px] shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -64,24 +66,20 @@ const SignIn = () => {
               <input className="btn btn-primary" type="submit" value="Login" />
             </div>
             <small>
-              New here{" "}
+              New here?
               <Link
-                className="text-base font-medium text-indigo-700"
+                className="text-base text-center font-medium text-indigo-700"
                 to={"/sign-up"}
               >
                 Create an account
               </Link>
             </small>
           </form>
+          <SocialLogin></SocialLogin>
+
         </div>
-        <div className="text-center w-1/2 lg:text-left">
-          <input type="submit" className="text-5xl font-bold" value="login" />
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
+
+       
       </div>
     </div>
   );
