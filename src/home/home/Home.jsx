@@ -49,7 +49,7 @@ const Home = () => {
         Shop smarter, live better – find your essentials and beyond
       </h1>
 
-      {/* Search and Filters */}
+      {/* Search*/}
       <div className="mb-4 sm:text-center">
         <div>
           <span>Search here... </span>
@@ -58,9 +58,10 @@ const Home = () => {
             placeholder="Search by product name..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className=" border-blue-800 border p-2 rounded mb-2 mr-2"
+            className=" border-blue-800 border p-2 rounded mb-2 mr-2 w-full sm:w-auto"
           />
         </div>
+        {/* filter brands */}
 
         <select
           onChange={(e) => setBrand(e.target.value)}
@@ -143,7 +144,7 @@ const Home = () => {
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
           disabled={page === 1}
-          className="bg-blue-800 text-white border px-3 py-1 mx-1 rounded"
+          className="bg-blue-900 text-white border px-3 py-1 mx-1 rounded"
         >
           Previous
         </button>
@@ -151,7 +152,7 @@ const Home = () => {
         <button
           onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
           disabled={page === totalPages}
-          className="border px-3 py-1 mx-1 rounded bg-blue-800 text-white"
+          className="border px-3 py-1 mx-1 rounded bg-blue-900 text-white"
         >
           Next
         </button>
