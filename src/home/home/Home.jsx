@@ -16,19 +16,22 @@ const Home = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("https://server-bay-six.vercel.app/products", {
-        params: {
-          page,
-          limit: 6,
-          search,
-          brand,
-          category,
-          minPrice,
-          maxPrice,
-          sortBy,
-          sortOrder,
-        },
-      });
+      const response = await axios.get(
+        "https://server-bay-six.vercel.app/products",
+        {
+          params: {
+            page,
+            limit: 6,
+            search,
+            brand,
+            category,
+            minPrice,
+            maxPrice,
+            sortBy,
+            sortOrder,
+          },
+        }
+      );
       setProducts(response.data.products);
       setTotalPages(response.data.totalPages);
     } catch (error) {
@@ -72,6 +75,8 @@ const Home = () => {
           <option value="Samsung">Samsung</option>
           <option value="LG">LG</option>
         </select>
+
+        {/* category */}
         <select
           onChange={(e) => setCategory(e.target.value)}
           className="border p-2 border-blue-800 rounded mb-2 mr-2"
@@ -82,6 +87,8 @@ const Home = () => {
           <option value="laptop">Laptop</option>
           <option value="tablet">Tablet</option>
         </select>
+
+        {/* price filter */}
         <input
           type="number"
           placeholder="Min Price"
@@ -96,18 +103,19 @@ const Home = () => {
           onChange={(e) => setMaxPrice(e.target.value)}
           className="border p-2 border-blue-800 rounded mb-2 mr-2"
         />
+
         {/* sort by start */}
-        <select
+        {/* <select
           onChange={(e) => setSortBy(e.target.value)}
           className="border border-blue-800 p-2 rounded mb-2 mr-2"
         >
           <option value="">Sort By</option>
           <option value="price">Price</option>
           <option value="creationDate">Date</option>
-        </select>
+        </select> */}
 
         {/* Conditionally render sort options based on selected sortBy */}
-        {sortBy === "price" && (
+        {/* {sortBy === "price" && (
           <select
             onChange={(e) => setSortOrder(e.target.value)}
             className="border border-blue-800 p-2 rounded mb-2"
@@ -125,7 +133,30 @@ const Home = () => {
             <option value="desc">Newest to Oldest</option>
             <option value="asc">Oldest to Newest</option>
           </select>
-        )}
+        )} */}
+
+        {/* sort by */}
+        <select
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "price-asc") {
+              setSortBy("price");
+              setSortOrder("asc");
+            } else if (value === "price-desc") {
+              setSortBy("price");
+              setSortOrder("desc");
+            } else if (value === "date-desc") {
+              setSortBy("creationDate");
+              setSortOrder("desc");
+            }
+          }}
+          className="border border-blue-800 p-2 rounded mb-2 mr-2"
+        >
+          <option value="">Sort By</option>
+          <option value="price-asc">Price (Low to High)</option>
+          <option value="price-desc">Price (High to Low)</option>
+          <option value="date-desc">Date (Newest)</option>
+        </select>
       </div>
 
       {/* Product Cards */}
