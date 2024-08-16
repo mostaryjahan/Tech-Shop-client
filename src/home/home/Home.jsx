@@ -140,7 +140,6 @@ const Home = () => {
             <Card key={product._id} product={product} />
           ))
         ) : (
-          // <p>Loading products...</p>
           <div className="flex justify-center items-center ">
           <p className="w-16 h-16 border-4 border-dashed  animate-spin border-blue-800"></p>
         </div>
