@@ -46,7 +46,7 @@ const Home = () => {
 
   return (
     <div className="p-4">
-        <Helmet>
+      <Helmet>
         <title>Tech-Shop | Home</title>
       </Helmet>
       <h1 className="text-center font-rubik  text-2xl font-semibold dark:text-gray-100 mt-6">
@@ -108,7 +108,6 @@ const Home = () => {
           className="border p-2 border-blue-800 rounded mb-2 mr-2 w-[130px] sm:w-auto"
         />
 
-
         {/* sort by */}
         <select
           onChange={(e) => {
@@ -141,10 +140,8 @@ const Home = () => {
           ))
         ) : (
           <div className="flex justify-center items-center ">
-          <p className="w-16 h-16 border-4 border-dashed  animate-spin border-blue-800"></p>
-        </div>
-        
-         
+            <p className="w-16 h-16 border-4 border-dashed  animate-spin border-blue-800"></p>
+          </div>
         )}
       </div>
 
