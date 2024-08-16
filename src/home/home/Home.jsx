@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Card/Card";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -45,6 +46,9 @@ const Home = () => {
 
   return (
     <div className="p-4">
+        <Helmet>
+        <title>Tech-Shop | Home</title>
+      </Helmet>
       <h1 className="text-center font-rubik  text-2xl font-semibold dark:text-gray-100 mt-6">
         Welcome to Our Shop....
       </h1>
@@ -53,7 +57,7 @@ const Home = () => {
       </h1>
 
       {/* Search*/}
-      <div className="mb-4 sm:text-center">
+      <div className="mb-4 sm:text-center text-center">
         <div>
           <span>Search here... </span>
           <input
@@ -61,14 +65,14 @@ const Home = () => {
             placeholder="Search by product name..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className=" border-blue-800 border p-2 rounded mb-2 mr-2 w-full sm:w-auto"
+            className=" border-blue-800 border p-2 rounded mb-2 mr-2 w-[130px] h-6 sm:w-auto sm:h-auto"
           />
         </div>
         {/* filter brands */}
 
         <select
           onChange={(e) => setBrand(e.target.value)}
-          className="border border-blue-800 p-2 rounded mb-2 mr-2"
+          className="border border-blue-800 p-2 rounded mb-2 mr-2  w-[130px] sm:w-auto"
         >
           <option value="">All Brands</option>
           <option value="Apple">Apple</option>
@@ -79,7 +83,7 @@ const Home = () => {
         {/* category */}
         <select
           onChange={(e) => setCategory(e.target.value)}
-          className="border p-2 border-blue-800 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2  w-[130px] sm:w-auto"
         >
           <option value="">All Categories</option>
           <option value="mobile">Mobile</option>
@@ -94,46 +98,16 @@ const Home = () => {
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="border p-2 border-blue-800 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2 w-[130px] sm:w-auto"
         />
         <input
           type="number"
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          className="border p-2 border-blue-800 rounded mb-2 mr-2"
+          className="border p-2 border-blue-800 rounded mb-2 mr-2 w-[130px] sm:w-auto"
         />
 
-        {/* sort by start */}
-        {/* <select
-          onChange={(e) => setSortBy(e.target.value)}
-          className="border border-blue-800 p-2 rounded mb-2 mr-2"
-        >
-          <option value="">Sort By</option>
-          <option value="price">Price</option>
-          <option value="creationDate">Date</option>
-        </select> */}
-
-        {/* Conditionally render sort options based on selected sortBy */}
-        {/* {sortBy === "price" && (
-          <select
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="border border-blue-800 p-2 rounded mb-2"
-          >
-            <option value="asc">Low to High</option>
-            <option value="desc">High to Low</option>
-          </select>
-        )}
-
-        {sortBy === "creationDate" && (
-          <select
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="border border-blue-800  p-2 rounded mb-2"
-          >
-            <option value="desc">Newest to Oldest</option>
-            <option value="asc">Oldest to Newest</option>
-          </select>
-        )} */}
 
         {/* sort by */}
         <select
@@ -166,7 +140,12 @@ const Home = () => {
             <Card key={product._id} product={product} />
           ))
         ) : (
-          <p>Loading products...</p>
+          // <p>Loading products...</p>
+          <div className="flex justify-center items-center ">
+          <p className="w-16 h-16 border-4 border-dashed  animate-spin border-blue-800"></p>
+        </div>
+        
+         
         )}
       </div>
 

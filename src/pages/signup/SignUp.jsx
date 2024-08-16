@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -49,6 +50,9 @@ const SignUp = () => {
 
   return (
     <div className="hero bg-base-200">
+        <Helmet>
+        <title>Tech-Shop | SignUp</title>
+      </Helmet>
       <div className="hero-content flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="lg:text-3xl text-2xl font-bold">SignUp now!</h1>

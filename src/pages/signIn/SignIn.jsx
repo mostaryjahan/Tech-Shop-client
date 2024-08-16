@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
   const { loginUser } = useAuth();
@@ -27,6 +28,9 @@ const SignIn = () => {
 
   return (
     <div className="hero  bg-base-200">
+      <Helmet>
+        <title>Tech-Shop | Sign In</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <h1 className="text-2xl font-bold text-center">SignIn Now!</h1>
         <div className="card  w-full md:w-[400px] shadow-2xl bg-base-100">

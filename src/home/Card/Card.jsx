@@ -1,5 +1,11 @@
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+
+
+
 const Card = ({ product }) => {
   const localDate = new Date(product.creationDate).toLocaleString();
+  
 
   return (
     <div className="max-w-lg p-4 border-2 rounded border-blue-800 shadow-md bg-gray-100 dark:text-gray-800">
@@ -16,7 +22,12 @@ const Card = ({ product }) => {
           />
           <div className="flex items-center justify-between text-sm">
             <p>Price: ${product.price}</p>
-            <p>Ratings: {product.ratings}/5</p>
+            <Rating
+                style={{ maxWidth: 100 }}
+                value={product.ratings}
+                readOnly
+              />
+          
           </div>
         </div>
         <div className="">

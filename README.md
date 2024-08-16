@@ -40,3 +40,4 @@ The frontend is deployed on Netlify or Vercel. You can view the live website her
 4. Sort products by price or newest first.
 5. Sign in using Google or Email/Password.
 
+-  Contact: For any inquiries, please contact mostaryjahan01gmail.com.
