@@ -1,4 +1,3 @@
-import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
@@ -34,7 +33,7 @@ const SocialLogin = () => {
                 className="p-2 w-full text-center justify-center text-white flex items-center gap-2 border-2 bg-blue-700 rounded-2xl"
                 aria-label="Sign in with Google"
             >
-                <FaGoogle></FaGoogle>Google
+                Google
             </button>
         </div>
     );
