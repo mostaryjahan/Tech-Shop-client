@@ -14,8 +14,13 @@ const Home = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const fetchProducts = async () => {
+    setLoading(true);
+    setError("");
+
     try {
       const response = await axios.get(
         "https://server-bay-six.vercel.app/products",
@@ -35,9 +40,15 @@ const Home = () => {
       );
       setProducts(response.data.products);
       setTotalPages(response.data.totalPages);
+      //edit
+      if (response.data.products.length === 0) {
+        setError("Searching product is not available");
+      }
     } catch (error) {
       console.error("Error fetching products:", error);
+      setError("Error fetching products. Please try again later.");
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -134,13 +145,23 @@ const Home = () => {
 
       {/* Product Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-4">
-        {products.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-between items-center gap-6 mx-auto">
+            <span className="loading loading-dots loading-lg"></span>
+            <span className="loading loading-dots loading-md"></span>
+            <span className="loading loading-dots loading-sm"></span>
+          </div>
+        ) : error ? (
+          <div className="flex justify-center items-center">
+            <p className="text-red-500 font-semibold">{error}</p>
+          </div>
+        ) : products.length > 0 ? (
           products.map((product) => (
             <Card key={product._id} product={product} />
           ))
         ) : (
-          <div className="flex justify-center items-center ">
-            <p className="w-16 h-16 border-4 border-dashed  animate-spin border-blue-800"></p>
+          <div className="flex justify-center items-center">
+            <p className="text-gray-500">No products available.</p>
           </div>
         )}
       </div>
